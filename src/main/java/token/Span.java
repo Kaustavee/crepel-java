@@ -1,1 +1,4 @@
-public class Span {}
+package token;
+
+public class Span {
+}
