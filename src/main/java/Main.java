@@ -16,6 +16,9 @@ public class Main {
             } catch (NoSuchElementException e) {
                 System.out.println("EOF");
                 break;
+
+            } finally {
+                repel.close();
             }
         }
     }
