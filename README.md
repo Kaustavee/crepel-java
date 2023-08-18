@@ -1,28 +1,12 @@
 # crepel
 
-## run the program
-
-```bash
-java Main.java
+## build jar
+```
+./gradlew jar
 ```
 
+## run the jar
 
-## creating jar
-
-compile Main.java to Main.class
-
-```bash
-javac Main.java
 ```
-
-create jar
-
-```bash
-jar cmf MANIFEST.MF crepel.jar Main.class
-```
-
-run the program
-
-```bash
-java -jar crepel.jar
+java -jar build/libs/crepel.jar
 ```
