@@ -1,14 +1,22 @@
-import java.util.Scanner;
+import java.util.NoSuchElementException;
 
 public class Main {
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+
+        // logo
+        System.out.println("crepel-java v0.1.1-prebulid");
+
+        Repel repel = new Repel();
 
         while (true) {
-            System.out.println("Enter something: ");
-            String userInput = scanner.nextLine();
+            try {
+                System.out.println(repel.readLine("> "));
 
-            System.out.println("You entered: " + userInput);
+            } catch (NoSuchElementException e) {
+                System.out.println("EOF");
+                break;
+            }
         }
     }
 }
