@@ -18,10 +18,18 @@ public class Lexer {
         this.ch = nullChar;
     }
 
-    // TODO: implementation
     // advances position
+    // updates ch
     void readChar() {
-        throw new RuntimeException("not implemented");
+        if (readPosition < input.length()) {
+            position = readPosition;
+            ch = input.charAt(position);
+        } else {
+            position = input.length();
+            ch = nullChar;
+        }
+
+        readPosition++;
     }
 
     // TODO: implementation

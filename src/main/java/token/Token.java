@@ -1,6 +1,6 @@
 package token;
 
 public class Token {
-    public TokenType type;
-    public Span span;
+    public Type type;
+    public String literal;
 }
