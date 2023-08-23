@@ -1,6 +1,7 @@
 *.jar
 *.class
 
+/.idea
 /build
 /.gradle
 

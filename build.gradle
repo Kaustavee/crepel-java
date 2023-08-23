@@ -1,7 +1,10 @@
-apply plugin :'java'
+plugins {
+    id 'application'
+}
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+application {
+    mainClass = 'Main'
+}
 
 jar {
     archiveBaseName = 'crepel'
@@ -13,7 +16,15 @@ jar {
     }
 }
 
-apply plugin : 'application'
+repositories {
+    mavenCentral()
+}
 
-mainClassName = 'Main'
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
 
+tasks.named('test') {
+    useJUnitPlatform()
+}
