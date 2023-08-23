@@ -1,7 +1,7 @@
 package lexer;
 
-import token.Token;
-
+import token.*;
+ 
 public class Lexer {
 
     final char nullChar = (char) 0;
@@ -11,11 +11,27 @@ public class Lexer {
     int readPosition;
     char ch;
 
-    Lexer(String input) {
+    public Lexer(String input) {
         this.input = input;
         this.position = 0;
         this.readPosition = 0;
         this.ch = nullChar;
+
+        readChar();
+   }
+
+
+    public Token nextToken() {
+        return switch(ch) {
+            case '+' -> char1(TokenType.Plus);
+            case '-' -> char1(TokenType.Minus);
+            case '*' -> char1(TokenType.Asterisk);
+            case '/' -> char1(TokenType.Slash);
+
+            case nullChar -> char0(TokenType.Eof);
+
+            default -> char1(TokenType.Illegal);
+        };
     }
 
     // advances position
@@ -32,21 +48,28 @@ public class Lexer {
         readPosition++;
     }
 
+    Token char1(TokenType tk) {
+        Token tok = new Token(tk, input.substring(position, position + 1));
+        readChar();
+        return tok;
+    }
+
+    Token char0(TokenType tk) {
+        return new Token(tk, "");
+    }
+
     // TODO: implementation
-    // peak one char
-    char peak() {
+    // peek one char
+    char peek() {
         throw new RuntimeException("not implemented");
     }
 
     // TODO: implementation
-    // peak nth char
-    char peak(int nth) {
+    // peek nth char
+    char peek(int nth) {
         throw new RuntimeException("not implemented");
     }
 
-    Token nextToken() {
-        throw new RuntimeException("not implemented");
-    }
 
     // checking functions
 

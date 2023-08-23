@@ -1,6 +1,6 @@
 package token;
 
-public enum Type {
+public enum TokenType {
     Illegal,
     Eof,
 
@@ -24,6 +24,11 @@ public enum Type {
 
     Comma,      // ,
     Semicolon,  // ;
+
+    Lparan, // (
+    Rparan, // )
+    Lbrace, // {
+    Rbrace, // }
 
     IntKeyword,
     FloatKeyword,

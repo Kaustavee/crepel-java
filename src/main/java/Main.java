@@ -12,7 +12,6 @@ public class Main {
         while (true) {
             try {
                 System.out.println(repel.readLine("> "));
-
             } catch (NoSuchElementException e) {
                 System.out.println("EOF");
                 break;
