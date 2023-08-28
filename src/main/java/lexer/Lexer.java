@@ -23,10 +23,34 @@ public class Lexer {
 
     public Token nextToken() {
         return switch(ch) {
+            case '#' -> char1(TokenType.Hash);
+
             case '+' -> char1(TokenType.Plus);
             case '-' -> char1(TokenType.Minus);
             case '*' -> char1(TokenType.Asterisk);
             case '/' -> char1(TokenType.Slash);
+
+            case '%' -> char1(TokenType.Percent);
+            case '?' -> char1(TokenType.Question);
+            case '!' -> char1(TokenType.Bang);
+            case '~' -> char1(TokenType.Tilde);
+
+            case '|' -> char1(TokenType.BitOr);
+            case '&' -> char1(TokenType.BitAnd);
+
+            case '.' -> char1(TokenType.Dot);
+            case ':' -> char1(TokenType.Colon);
+
+            case ',' -> char1(TokenType.Comma);
+            case ';' -> char1(TokenType.Semicolon);
+
+            case '>' -> char1(TokenType.GT);
+            case '<' -> char1(TokenType.LT);
+
+            case '(' -> char1(TokenType.Lparan);
+            case ')' -> char1(TokenType.Rparan);
+            case '{' -> char1(TokenType.Lbrace);
+            case '}' -> char1(TokenType.Rbrace);
 
             case nullChar -> char0(TokenType.Eof);
 
