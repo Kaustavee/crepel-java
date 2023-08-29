@@ -3,6 +3,7 @@ package token;
 public enum TokenType {
     Illegal,
     Eof,
+    Hash,   // #
 
     Ident,
     IntLiteral,
@@ -14,7 +15,10 @@ public enum TokenType {
     Minus,      // -
     Asterisk,   // *
     Slash,      // /
+    Percent,    // %
+    Question,   // ?
     Bang,       // !
+    Tilde,      // ~
     Eq,         // ==
     NEq,        // !=
     LT,         // <
@@ -22,8 +26,15 @@ public enum TokenType {
     LEq,        // <=
     GEq,        // >=
 
+    BitOr,      // |
+    BitAnd,     // &
+    And,        // &&
+    Or,         // ||
+
     Comma,      // ,
     Semicolon,  // ;
+    Dot,        // .
+    Colon,      // :
 
     Lparan, // (
     Rparan, // )
