@@ -19,7 +19,7 @@ public class Main {
                 Token t = l.nextToken();
 
                 while (t.type != TokenType.Eof) {
-                    System.out.println("Token( " + t.type + ", " + t.literal + "  )");
+                    System.out.println("Token( " + t.type + ", " + t.value + "  )");
                     t = l.nextToken();
                 }
 
