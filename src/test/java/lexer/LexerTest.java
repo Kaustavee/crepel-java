@@ -13,17 +13,17 @@ class LexerTest {
         Lexer l = new Lexer("+-*/");
 
         Token[] tests = {
-            new Token(TokenType.Plus, "+"),
-            new Token(TokenType.Minus, "-"),
-            new Token(TokenType.Asterisk, "*"),
-            new Token(TokenType.Slash, "/"),
-            new Token(TokenType.Eof, ""),
+                new Token(TokenType.Plus, "+"),
+                new Token(TokenType.Minus, "-"),
+                new Token(TokenType.Asterisk, "*"),
+                new Token(TokenType.Slash, "/"),
+                new Token(TokenType.Eof, ""),
         };
 
         for (Token tt : tests) {
             Token tok = l.nextToken();
             assertEquals(tt.type, tok.type);
-            assertEquals(tt.literal, tok.literal);
+            assertEquals(tt.value, tok.value);
         }
     }
 }

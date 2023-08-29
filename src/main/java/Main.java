@@ -1,4 +1,7 @@
 import java.util.NoSuchElementException;
+import lexer.Lexer;
+import token.Token;
+import token.TokenType;
 
 public class Main {
 
@@ -11,14 +14,21 @@ public class Main {
 
         while (true) {
             try {
-                System.out.println(repel.readLine("> "));
+                String input = repel.readLine("> ");
+                Lexer l = new Lexer(input);
+                Token t = l.nextToken();
+
+                while (t.type != TokenType.Eof) {
+                    System.out.println("Token( " + t.type + ", " + t.value + "  )");
+                    t = l.nextToken();
+                }
+
             } catch (NoSuchElementException e) {
                 System.out.println("EOF");
                 break;
-
-            } finally {
-                repel.close();
             }
         }
+
+        repel.close();
     }
 }

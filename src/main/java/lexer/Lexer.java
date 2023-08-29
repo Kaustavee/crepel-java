@@ -1,7 +1,7 @@
 package lexer;
 
 import token.*;
- 
+
 public class Lexer {
 
     final char nullChar = (char) 0;
@@ -18,11 +18,12 @@ public class Lexer {
         this.ch = nullChar;
 
         readChar();
-   }
-
+    }
 
     public Token nextToken() {
-        return switch(ch) {
+        skipWhitespace();
+
+        return switch (ch) {
             case '#' -> char1(TokenType.Hash);
 
             case '+' -> char1(TokenType.Plus);
@@ -94,8 +95,16 @@ public class Lexer {
         throw new RuntimeException("not implemented");
     }
 
+    void skipWhitespace() {
+        while (isWhitespace(ch)) {
+            readChar();
+        }
+    }
 
     // checking functions
+    public static boolean isWhitespace(char ch) {
+        return ch == ' ' || ch == '\n' || ch == '\t' || ch == '\r';
+    }
 
     public static boolean isAlphabet(char ch) {
         return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z');

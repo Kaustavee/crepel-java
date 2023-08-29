@@ -2,10 +2,10 @@ package token;
 
 public class Token {
     public TokenType type;
-    public String literal;
+    public String value;
 
-    public Token(TokenType type, String literal) {
+    public Token(TokenType type, String value) {
         this.type = type;
-        this.literal = literal;
+        this.value = value;
     }
 }
